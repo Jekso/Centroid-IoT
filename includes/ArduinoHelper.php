@@ -25,7 +25,7 @@ class ArduinoHelper
     //update feedback from arduino
     public static function updateFeedback($system,$current_temp,$door_state)
     {
-        //update feedback for the system having hash {$system-hash}
+        //update feedback for the system having hash {$system->hash}
     }
 
 
