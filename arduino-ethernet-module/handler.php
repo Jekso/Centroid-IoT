@@ -24,7 +24,7 @@ if (isset($_POST['system_hash']) &&
         if( $current_temp >= $system->getSystemParameters()->user_temp )
             $system->saveTempLog($current_temp) ;
 
-        $system->outputResponse() ;
+        echo $system->outputResponse() ;
     }
 
 }

@@ -15,14 +15,14 @@ class APIHelper
     }
 
     //authenticate user
-    public static function authenticate($username,$password)
+    public static function getUserProfile($username,$password)
     {
-        //search for the user in users table
+        //search for the user in users table then get sytem data using system_id
         //return his data in json if found , or return false
     }
 
 
-    //return the system
+    //return the system in json
     public static function getSystem($system_hash)
     {
         //search for the system using {$system_hash} in systems table
