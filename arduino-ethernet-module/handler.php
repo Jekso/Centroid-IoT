@@ -7,24 +7,24 @@ if (isset($_POST['system_hash']) &&
 {
     //get POST parameters
     $system_hash    = $_POST['syatem_hash'] ;
-    $current_temp   = ArduinoHelper::calculateTemp($_POST['current_temp']) ;
+    $current_temp   = System::calculateTemp($_POST['current_temp']) ;
     $door_state     = $_POST['door_state'] ;
 
-    //search for the system using the system_hash
-    $system = ArduinoHelper::getSystem($system_hash) ;
+    //search for the system using the system_hash idintifier
+    //just tall random unique string we configured it into arduino code
+    $system = new System($system_hash) ;
 
-    //security check : system must have verified system_hash
-    //just tall random unique string we configured it in arduino code
-    if($system)
+    //security check : system must have valid system_hash idintifier
+    if($system->isValid())
     {
-        //update the system feedback(door_state,current_temp)
-        ArduinoHelper::updateFeedback($system,$current_temp,$door_state) ;
+        //update the system feedback ($current_temp,$door_state)
+        $system->updateFeedback($current_temp,$door_state) ;
 
-        //compare the current_temp with the user's critical temp , if it's higher then save log
-        if( $current_temp >= $system->user_temp )
-            ArduinoHelper::saveTempLog($system,$current_temp) ;
+        //compare the current_temp with the user's critical temp , if it's higher then save Temp log
+        if( $current_temp >= $system->getSystemParameters()->user_temp )
+            $system->saveTempLog($current_temp) ;
 
-        ArduinoHelper::outputResponse($system) ;
+        $system->outputResponse() ;
     }
 
 }
