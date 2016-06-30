@@ -24,7 +24,26 @@ class system
     //calculate the tempreture of the PT100 sensor from the resistance datasheet
     public static function calculateTemp($resistance)
     {
+        //include resistance values from the datasheet and put it in $values array
+        $data = file_get_contents("pt100-resistance-table.php");
+	    $data = str_replace(PHP_EOL, ' ', $data);
+	    $values = explode(' ',$data) ;
 
+        //calculate the temp , check the pt100.pdf file and u will get it ^_^
+        if($resistance >= end($values))
+	        $temp = count($values)-1 ;
+	    else
+	    {
+	        for ($i = 0 ; $i < count($values)-1 ; $i++)
+	        {
+	            if($resistance >= $values[$i] && $resistance < $values[$i+1])
+	            {
+	                $temp = $i ;
+	                break;
+	            }
+	        }
+	    }
+		return $temp ;
     }
 
 
@@ -82,7 +101,7 @@ class system
         }
         else if($this->system->ac_mode == 1) //man
         {
-            
+
         }
     }
 
