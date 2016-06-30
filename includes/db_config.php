@@ -4,7 +4,7 @@
 $DB_SERVER 	= "localhost" ;
 $DB_USER 	= "root" ;
 $DB_PASS 	= "" ;
-$DB_NAME 	= "itroom" ;
+$DB_NAME 	= "iotroom" ;
 
 try
 {
