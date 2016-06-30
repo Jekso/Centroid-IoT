@@ -1,15 +1,16 @@
 <?php
 
+require_once dirname(__FILE__) . '/../includes/System.php' ;
+
 if (isset($_POST['system_hash']) &&
     isset($_POST['current_temp']) &&
     isset($_POST['door_state']) &&
     $_SERVER['HTTP_USER_AGENT'] == 'IoT-IT-RooM-Arduino')
 {
     //get POST parameters
-    $system_hash    = $_POST['syatem_hash'] ;
+    $system_hash    = $_POST['system_hash'] ;
     $current_temp   = System::calculateTemp($_POST['current_temp']) ;
     $door_state     = $_POST['door_state'] ;
-
     //search for the system using the system_hash idintifier
     //just tall random unique string we configured it into arduino code
     $system = new System($system_hash) ;
