@@ -25,7 +25,7 @@ class APIHelper
 		$user = $stmt->fetch(PDO::FETCH_OBJ);
         if($user)
             return json_encode($user, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES );
-        return 'error' ;
+        return json_encode(['error' => 1], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES );
     }
 
 
@@ -39,7 +39,7 @@ class APIHelper
 		$system = $stmt->fetch(PDO::FETCH_OBJ);
         if($system)
             return json_encode($system, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES );
-        return 'error' ;
+        return json_encode(['error' => 1], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES );
     }
 
 
