@@ -2,10 +2,10 @@
 
 require_once dirname(__FILE__) . '/../includes/APIHelper.php' ;
 
-if ( isset($_POST['system_hash']) )
+if ( isset($_POST['system_id']) )
 {
     //get POST parameters
-    $system_hash        = $_POST['system_hash'] ;
+    $system_id          = $_POST['system_id'] ;
     $user_temp          = $_POST['user_temp'] ;
     $mode               = $_POST['ac_mode'] ;
     $data['ac_mode']    = $mode ;
@@ -21,10 +21,10 @@ if ( isset($_POST['system_hash']) )
         $data['ac4'] = $_POST['ac4'] ;
     }
 
-    
+
     //output json message = succeed or failed
     $handler = new APIHelper ;
-    echo $handler->updateSystem($system_hash,$data) ;
+    echo $handler->updateSystem($system_id,$data) ;
 
 
 }
