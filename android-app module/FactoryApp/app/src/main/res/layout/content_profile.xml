@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.ahmed.example.factoryapp.Profile"
+    tools:showIn="@layout/activity_profile">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Profile_welcome_textView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Profile_door_imageView"
+        android:layout_below="@+id/Profile_welcome_textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="58dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Profile_door_textView"
+        android:layout_alignTop="@+id/Profile_door_imageView"
+        android:layout_toRightOf="@+id/Profile_welcome_textView"
+        android:layout_toEndOf="@+id/Profile_welcome_textView" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Profile_currenttemp_imageView2"
+        android:layout_marginTop="64dp"
+        android:layout_below="@+id/Profile_door_textView"
+        android:layout_toRightOf="@+id/Profile_door_imageView"
+        android:layout_toEndOf="@+id/Profile_door_imageView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Profile_currenttemp_textView"
+        android:layout_alignTop="@+id/Profile_currenttemp_imageView2"
+        android:layout_alignLeft="@+id/Profile_door_textView"
+        android:layout_alignStart="@+id/Profile_door_textView" />
+
+
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        android:id="@+id/Profile_update_button"
+        android:layout_below="@+id/Profile_currenttemp_textView"
+        android:layout_marginTop="127dp" />
+
+</RelativeLayout>
