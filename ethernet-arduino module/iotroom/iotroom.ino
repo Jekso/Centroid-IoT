@@ -2,8 +2,6 @@
 #include <Ethernet.h>
 
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
-//IPAddress ip(192, 168, 1, 177);
-//IPAddress myDns(1, 1, 1, 1);
 EthernetClient client;
 char server[] = "www.gelvano.esy.es";
 
@@ -28,7 +26,6 @@ void setup()
   Serial.begin(9600);
   while (!Serial) {;}
   delay(1000);
-  //Ethernet.begin(mac, ip, myDns);
   if(Ethernet.begin(mac) == 0)
     Serial.print("Error Configured Ethernet");;
   Serial.print("My IP address: ");
@@ -61,10 +58,6 @@ void loop()
         ac2   = (http_response[flag+4] == '1') ? HIGH : LOW ;
         ac3   = (http_response[flag+6] == '1') ? HIGH : LOW ;
         ac4   = (http_response[flag+8] == '1') ? HIGH : LOW ;
-//        digitalWrite(AC1,ac1) ;
-//        digitalWrite(AC2,ac2) ;
-//        digitalWrite(AC3,ac3) ;
-//        digitalWrite(AC4,ac4) ;
         operateACs(ac1,ac2,ac3,ac4) ;
       }
       else
