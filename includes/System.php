@@ -97,11 +97,11 @@ class System
         //check $system->mode then output the required json
         if($this->system->ac_mode == 0) //auto
         {
-            return 'mode='.$this->system->ac_mode ;
+            return 'mode='.$this->system->ac_mode.",".date("H")."\n" ;
         }
         else if($this->system->ac_mode == 1) //man
         {
-            return 'mode='.$this->system->ac_mode.','.$this->system->ac1.','.$this->system->ac2.','.$this->system->ac3.','.$this->system->ac4  ;
+            return 'mode='.$this->system->ac_mode.','.$this->system->ac1.','.$this->system->ac2.','.$this->system->ac3.','.$this->system->ac4."\n"  ;
         }
     }
 

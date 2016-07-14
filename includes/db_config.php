@@ -1,5 +1,6 @@
 <?php
 
+date_default_timezone_set('Africa/Cairo');
 
 $DB_SERVER 	= "localhost" ;
 $DB_USER 	= "root" ;
